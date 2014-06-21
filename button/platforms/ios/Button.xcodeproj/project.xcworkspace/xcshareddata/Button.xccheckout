@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>20332323-1004-4C3D-9BA8-83ADF90FF340</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Button</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>46F68747-83C2-4DAF-A594-9F99CBB59430</key>
+		<string>https://github.com/don/cordova-plugin-rfduino.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>examples/button/platforms/ios/Button.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>46F68747-83C2-4DAF-A594-9F99CBB59430</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/don/cordova-plugin-rfduino.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>46F68747-83C2-4DAF-A594-9F99CBB59430</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>46F68747-83C2-4DAF-A594-9F99CBB59430</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cordova-plugin-rfduino</string>
+		</dict>
+	</array>
+</dict>
+</plist>
