@@ -24,64 +24,75 @@ var arrayBufferToInt = function (ab) {
 };
 
 var app = {
-    initialize: function() {
-        this.bindEvents();
-        detailPage.hidden = true;
-    },
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-        refreshButton.addEventListener('touchstart', this.refreshDeviceList, false);
-        closeButton.addEventListener('touchstart', this.disconnect, false);
-        deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
-    },
-    onDeviceReady: function() {
-        app.refreshDeviceList();
-    },
-    refreshDeviceList: function() {
-        deviceList.innerHTML = ''; // empties the list
-        rfduino.discover(5, app.onDiscoverDevice, app.onError);
-    },
-    onDiscoverDevice: function(device) {
-        var listItem = document.createElement('li'),
-            html = '<b>' + device.name + '</b><br/>' +
-                'RSSI: ' + device.rssi + '&nbsp;|&nbsp;' +
-                'Advertising: ' + device.advertising + '<br/>' +
-                device.uuid;
-
-        listItem.setAttribute('uuid', device.uuid);
-        listItem.innerHTML = html;
-        deviceList.appendChild(listItem);
-    },
-    connect: function(e) {
-        var uuid = e.target.getAttribute('uuid'),
-            onConnect = function() {
-                rfduino.onData(app.onData, app.onError);
-                app.showDetailPage();
-            };
-
-        rfduino.connect(uuid, onConnect, app.onError);
-    },
-    onData: function(data) {
-        console.log(data);        
-        var buttonValue = arrayBufferToInt(data);
-        if (buttonValue === 1) {
-            buttonState.innerHTML = "On";
-        } else {
-            buttonState.innerHTML = "Off";            
-        }
-    },
-    disconnect: function() {
-        rfduino.disconnect(app.showMainPage, app.onError);
-    },
-    showMainPage: function() {
-        mainPage.hidden = false;
-        detailPage.hidden = true;
-    },
-    showDetailPage: function() {
-        mainPage.hidden = true;
-        detailPage.hidden = false;
-    },
-    onError: function(reason) {
-        alert(reason); // real apps should use notification.alert
+initialize: function() {
+    this.bindEvents();
+    detailPage.hidden = true;
+},
+bindEvents: function() {
+    document.addEventListener('deviceready', this.onDeviceReady, false);
+    refreshButton.addEventListener('touchstart', this.refreshDeviceList, false);
+    closeButton.addEventListener('touchstart', this.disconnect, false);
+    deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
+    rfHigh.addEventListener('touchstart', this.onData);
+},
+onDeviceReady: function() {
+    app.refreshDeviceList();
+},
+refreshDeviceList: function() {
+    deviceList.innerHTML = ''; // empties the list
+    rfduino.discover(5, app.onDiscoverDevice, app.onError);
+},
+onDiscoverDevice: function(device) {
+    var listItem = document.createElement('li'),
+    html = '<b>' + device.name + '</b><br/>' +
+    'RSSI: ' + device.rssi + '&nbsp;|&nbsp;' +
+    'Advertising: ' + device.advertising + '<br/>' +
+    device.uuid;
+    
+    listItem.setAttribute('uuid', device.uuid);
+    listItem.innerHTML = html;
+    deviceList.appendChild(listItem);
+},
+connect: function(e) {
+    var uuid = e.target.getAttribute('uuid'),
+    onConnect = function() {
+        rfduino.onData(app.onData, app.onError);
+        app.showDetailPage();
+    };
+    
+    rfduino.connect(uuid, onConnect, app.onError);
+},
+onData: function(data) {
+    console.log(data);
+    var buttonValue = arrayBufferToInt(data);
+    if (buttonValue === 1) {
+        buttonState.innerHTML = "On";
+    } else {
+        buttonState.innerHTML = "Off";
     }
+    // adding write to rfduino device
+    rfduino.write("3", app.writeSuccess, app.onError);
+    
+},
+disconnect: function() {
+    rfduino.disconnect(app.showMainPage, app.onError);
+},
+showMainPage: function() {
+    mainPage.hidden = false;
+    detailPage.hidden = true;
+},
+showDetailPage: function() {
+    mainPage.hidden = true;
+    detailPage.hidden = false;
+},
+onError: function(reason) {
+    alert(reason); // real apps should use notification.alert
+},
+writeSuccess: function(reason){
+    alert("you've sent info" + reason);
+    
+}
+    // document.getElementById(rfHigh).onclick(function(){
+    // rfduino.write(data, success, failure);
+    // });
 };
