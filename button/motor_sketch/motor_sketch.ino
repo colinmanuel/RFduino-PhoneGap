@@ -32,6 +32,7 @@ int buttonState = 0;
 void setup() {
   // led turned on/off from the iPhone app
   pinMode(motorOne, OUTPUT);
+  pinMode(motorTwo, OUTPUT);
 
   // button press will be shown on the iPhone app)
   pinMode(button, INPUT);
@@ -94,12 +95,12 @@ void RFduinoBLE_onDisconnect()
 {
   // don't leave the led on if they disconnect
   digitalWrite(motorOne, LOW);
+  digitalWrite(motorTwo, LOW);
 }
 
 void RFduinoBLE_onReceive(char *data, int len)
 {
     buttonState = buttonState + 1;
-
     if(buttonState > 1) {
         buttonState = 0;
     }
