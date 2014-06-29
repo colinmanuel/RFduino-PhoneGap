@@ -6,6 +6,7 @@ This is a small project to control 12v motors using the [RFduino](http://rfduino
 -  ~~Communicate with RFduino~~
 -  ~~Toggle 1 input correctly~~
 -  ~~Drive and stop motor~~
+- Automatically select closest BLE signal
 - Toggle 2 inputs correctly
 - Drive, stop and reverse motor
 - Read dynamic information from RFduino
