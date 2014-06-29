@@ -60,7 +60,7 @@ var app = {
     },
     onData: function(data) {
        console.log(data);
-		rfduino.write("5", app.writeSuccess, app.onError);
+		rfduino.write("3", app.writeSuccess, app.onError);
 	},
     disconnect: function() {
         rfduino.disconnect(app.showMainPage, app.onError);

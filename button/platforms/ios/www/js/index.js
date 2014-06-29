@@ -33,7 +33,7 @@ bindEvents: function() {
     refreshButton.addEventListener('touchstart', this.refreshDeviceList, false);
     closeButton.addEventListener('touchstart', this.disconnect, false);
     deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
-    rfHigh.addEventListener('touchstart', this.onData);
+    motorOne.addEventListener('touchstart', this.onData, false);
 },
 onDeviceReady: function() {
     app.refreshDeviceList();
@@ -63,17 +63,14 @@ connect: function(e) {
     rfduino.connect(uuid, onConnect, app.onError);
 },
 onData: function(data) {
-    console.log(data);
+    console.log('data: ' + data);
     var buttonValue = arrayBufferToInt(data);
     if (buttonValue === 1) {
         buttonState.innerHTML = "On";
     } else {
         buttonState.innerHTML = "Off";
     }
-    // adding write to rfduino device
-    rfduino.write("3", app.writeSuccess, app.onError);
-    // add conditional here to only writeSuccess if button is actively being pressed
-    
+    rfduino.write('5', app.writeSuccess, app.onError);
 },
 disconnect: function() {
     rfduino.disconnect(app.showMainPage, app.onError);
@@ -91,9 +88,5 @@ onError: function(reason) {
 },
 writeSuccess: function(reason){
     // alert("you've sent info" + reason);
-    
 }
-    // document.getElementById(rfHigh).onclick(function(){
-    // rfduino.write(data, success, failure);
-    // });
 };
