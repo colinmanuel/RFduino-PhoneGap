@@ -34,6 +34,7 @@ bindEvents: function() {
     closeButton.addEventListener('touchstart', this.disconnect, false);
     deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     motorOne.addEventListener('touchstart', this.onData, false);
+    motorTwo.addEventListener('touchstart', this.onData, false);
 },
 onDeviceReady: function() {
     app.refreshDeviceList();
@@ -70,7 +71,7 @@ onData: function(data) {
     } else {
         buttonState.innerHTML = "Off";
     }
-    rfduino.write('5', app.writeSuccess, app.onError);
+    rfduino.write('3', app.writeSuccess, app.onError);
 },
 disconnect: function() {
     rfduino.disconnect(app.showMainPage, app.onError);

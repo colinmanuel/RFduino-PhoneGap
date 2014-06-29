@@ -13,7 +13,8 @@ the application.
 
 // pin 3 on the RGB shield is the red led
 // (can be turned on/off from the iPhone app)
-int led = 3;
+int motorOne = 2;
+int motorTwo = 3;
 
 // pin 5 on the RGB shield is button 1
 // (button press will be shown on the iPhone app)
@@ -30,7 +31,7 @@ int buttonState = 0;
 
 void setup() {
   // led turned on/off from the iPhone app
-  pinMode(led, OUTPUT);
+  pinMode(motorOne, OUTPUT);
 
   // button press will be shown on the iPhone app)
   pinMode(button, INPUT);
@@ -81,10 +82,6 @@ int delay_until_button(int state)
   }
 }
 
-
-
-
-
 void loop() {
   delay_until_button(HIGH);
   RFduinoBLE.send(1);
@@ -96,7 +93,7 @@ void loop() {
 void RFduinoBLE_onDisconnect()
 {
   // don't leave the led on if they disconnect
-  digitalWrite(led, LOW);
+  digitalWrite(motorOne, LOW);
 }
 
 void RFduinoBLE_onReceive(char *data, int len)
@@ -108,7 +105,7 @@ void RFduinoBLE_onReceive(char *data, int len)
     }
   // if the first byte is 0x01 / on / true
   if (data[0] && buttonState == 1)
-    digitalWrite(led, HIGH);
+    digitalWrite(motorOne, HIGH);
   else
-    digitalWrite(led, LOW);
+    digitalWrite(motorOne, LOW);
 }
