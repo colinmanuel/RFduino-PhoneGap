@@ -1,6 +1,6 @@
 # RFduino Motor Control
 
-This is a small project to control 12v motors using the [RFduino](http://rfduino.com/ "RFduino") and Don Coleman's [RFduino Plugin PhoneGap](https://github.com/don/cordova-plugin-rfduino/ "RFduino Plugin PhoneGap"). 
+This is a small project to control 12v motors using the [RFduino](http://rfduino.com/ "RFduino") and Don Coleman's [RFduino Plugin for PhoneGap](https://github.com/don/cordova-plugin-rfduino/ "RFduino Plugin for PhoneGap"). 
 
 ### TODO:
 -  ~~Communicate with RFduino~~
