@@ -72,6 +72,9 @@ onData: function(data) {
         buttonState.innerHTML = "Off";
     }
     rfduino.write('3', app.writeSuccess, app.onError);
+// alert(JSON.stringify(data, null, 4));
+
+    // var button1 = document.getElementById('motorTwo');
 },
 disconnect: function() {
     rfduino.disconnect(app.showMainPage, app.onError);
@@ -88,6 +91,9 @@ onError: function(reason) {
     alert(reason); // real apps should use notification.alert
 },
 writeSuccess: function(reason){
-    // alert("you've sent info" + reason);
+    // alert("you've sent info " + reason);
+// alert(JSON.stringify(data, null, 4));
+// alert("testing: " + reason);
+
 }
 };

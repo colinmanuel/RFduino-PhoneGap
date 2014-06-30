@@ -55,6 +55,8 @@ int debounce(int state)
     {
       if (millis() - debounce_start >= debounce_time)
         return 1;
+    // Serial.print(state);
+      
     }
     else
       debounce_start = millis();
@@ -64,6 +66,7 @@ int debounce(int state)
 
 int delay_until_button(int state)
 {
+    // Serial.print(state);
   // set button edge to wake up on
   if (state)
     RFduino_pinWake(button, HIGH);
@@ -78,6 +81,7 @@ int delay_until_button(int state)
   // if multiple buttons were configured, this is how you would determine what woke you up
   if (RFduino_pinWoke(button))
   {
+    // Serial.write(button);
     // execute code here
     RFduino_resetPinWake(button);
   }
@@ -100,6 +104,7 @@ void RFduinoBLE_onDisconnect()
 
 void RFduinoBLE_onReceive(char *data, int len)
 {
+    Serial.println(data[0]);
     buttonState = buttonState + 1;
     if(buttonState > 1) {
         buttonState = 0;
@@ -110,3 +115,10 @@ void RFduinoBLE_onReceive(char *data, int len)
   else
     digitalWrite(motorOne, LOW);
 }
+
+
+
+
+
+
+
