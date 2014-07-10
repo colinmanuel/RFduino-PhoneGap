@@ -104,16 +104,21 @@ void RFduinoBLE_onDisconnect()
 
 void RFduinoBLE_onReceive(char *data, int len)
 {
-    Serial.println(data[0]);
     buttonState = buttonState + 1;
     if(buttonState > 1) {
         buttonState = 0;
     }
-  // if the first byte is 0x01 / on / true
-  if (data[0] && buttonState == 1)
+  // drive motor 1 or clockwise same motor
+  if (data[0] == '3' && buttonState == 1)
     digitalWrite(motorOne, HIGH);
   else
     digitalWrite(motorOne, LOW);
+  
+  // drive motor 2 or counter clockwise same motor
+  if (data[0] == '4' && buttonState == 1)
+    digitalWrite(motorTwo, HIGH);
+  else
+    digitalWrite(motorTwo, LOW);
 }
 
 

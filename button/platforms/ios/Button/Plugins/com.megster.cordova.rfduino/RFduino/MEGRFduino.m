@@ -119,7 +119,10 @@ CBCharacteristic *disconnect_characteristic;
     if (message != nil) {
         
         NSData *d = [message dataUsingEncoding:NSUTF8StringEncoding];
-        
+        // Create alert to test what data is being sent from PhoneGap
+    
+        NSLog(@"Plugin:%@", d);
+
         // TODO need to check the max length
         [activePeripheral writeValue:d forCharacteristic:send_characteristic type:CBCharacteristicWriteWithoutResponse];
         
