@@ -21,36 +21,42 @@
                 </ul>
                 <button id="refreshButton">Refresh</button>
 
+<!-- temporarily moving above detail page -->
+<!--                 <div id="buttonState">Off</div>
+                <button id="closeButton" class="ui-btn-b">Disconnect</button>
+                <br>
+                <label for="slider-3">Brightness (PWM Test):</label>
+                <div class="full-width-slider">
+                <input type="range" name="motorSpeed" id="motorSpeed" min="1" max="10" value="5" data-popup-enabled="true" data-show-value="true" data-highlight="true" >
+                </div>
+                <button id="motorOne" value="1">Green</button>
+                <button id="motorTwo" value="2">Blue</button> -->
+
+<!-- /temporarily moving above detail page -->
             </div>
 
             <div id="detailPage">
                 <div id="buttonState">Off</div>
                 <button id="closeButton" class="ui-btn-b">Disconnect</button>
                 <br>
-                <label for="motorOne">Motor One:</label>
+                <label for="slider-3">Brightness (PWM Test):</label>
+                <div class="full-width-slider">
+                <input type="range" name="motorSpeed" id="motorSpeed" min="1" max="10" value="5" data-popup-enabled="true" data-show-value="true" data-highlight="true" >
+                </div>
                 <button id="motorOne" value="1">Green</button>
-                <br>
-                <label for="motorTwo">Motor Two:</label>
                 <button id="motorTwo" value="2">Blue</button>
-                <!-- <button id="rfLow">Off</button> -->
-    <!--             <div data-demo-html="true" data-demo-css="#custom-label-flipswitch">
-                        <label for="flipPin3">Pin 3:</label>
-                    <select id="flipPin3" name="flipPin3" data-role="flipswitch">
-                        <option>Off</option>
-                        <option>On</option>
-                    </select>
-                </div> -->
-
-
-
-
-
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            jQuery( document ).ready(function( $ ) {
+                $('#motorSpeed').on( 'slidestop', function(e) {
+                var motor1speed = $(this).val();
+                $('#motorSpeed').val(motor1speed);
+                });
+            });
             </script>
     </body>
 </html>

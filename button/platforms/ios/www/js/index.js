@@ -18,6 +18,9 @@
 /* jshint browser: true , devel: true*/
 'use strict';
 
+
+
+
 var arrayBufferToInt = function (ab) {
     var a = new Uint8Array(ab);
     return a[0];
