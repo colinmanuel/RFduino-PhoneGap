@@ -13,8 +13,8 @@ the application.
 
 // pin 3 on the RGB shield is the red led
 // (can be turned on/off from the iPhone app)
-int motorOne = 2;
-int motorTwo = 3;
+int motorOne = 3;
+int motorTwo = 4;
 
 // pin 5 on the RGB shield is button 1
 // (button press will be shown on the iPhone app)
@@ -109,13 +109,13 @@ void RFduinoBLE_onReceive(char *data, int len)
         buttonState = 0;
     }
   // drive motor 1 or clockwise same motor
-  if (data[0] == '3' && buttonState == 1)
+  if (data[0] == '1' && buttonState == 1)
     digitalWrite(motorOne, HIGH);
   else
     digitalWrite(motorOne, LOW);
   
   // drive motor 2 or counter clockwise same motor
-  if (data[0] == '4' && buttonState == 1)
+  if (data[0] == '2' && buttonState == 1)
     digitalWrite(motorTwo, HIGH);
   else
     digitalWrite(motorTwo, LOW);

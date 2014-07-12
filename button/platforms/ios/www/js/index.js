@@ -35,7 +35,25 @@ bindEvents: function() {
     deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     motorOne.addEventListener('touchstart', this.onData, false);
     motorTwo.addEventListener('touchstart', this.onData, false);
+    // TODO: add touchend event to make motor run only as long as my finger is on it?
+    // http://www.sencha.com/forum/showthread.php?239799-Need-to-add-touchstart-and-touchend-event-for-button
+    /*    motorOne.addEventListener('touchstart', 
+        function(){
+         this.onData;
+         alert(this);
+        },
+        false);
+    motorTwo.addEventListener('touchstart', 
+        function(){
+         this.onData;
+         alert(this);
+        },
+        false);*/
 },
+
+
+
+
 onDeviceReady: function() {
     app.refreshDeviceList();
 },
@@ -64,17 +82,20 @@ connect: function(e) {
     rfduino.connect(uuid, onConnect, app.onError);
 },
 onData: function(data) {
-    console.log('data: ' + data);
     var buttonValue = arrayBufferToInt(data);
     if (buttonValue === 1) {
         buttonState.innerHTML = "On";
     } else {
         buttonState.innerHTML = "Off";
     }
-    rfduino.write('3', app.writeSuccess, app.onError);
-// alert(JSON.stringify(data, null, 4));
-
-    // var button1 = document.getElementById('motorTwo');
+   if(this.value == '1'){
+    // alert('1: ' + this.value);
+    rfduino.write('1', app.writeSuccess, app.onError);
+   }
+   if(this.value == '2'){
+    // alert('2: ' + this.value);
+    rfduino.write('2', app.writeSuccess, app.onError);
+   }
 },
 disconnect: function() {
     rfduino.disconnect(app.showMainPage, app.onError);
