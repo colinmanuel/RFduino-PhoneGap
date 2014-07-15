@@ -108,18 +108,41 @@ void RFduinoBLE_onReceive(char *data, int len)
     if(buttonState > 1) {
         buttonState = 0;
     }
-  // drive motor 1 or clockwise same motor
-  if (data[0] == '1' && buttonState == 1)
+  
+  /*
+  convert RFduino PhoneGap string into an integer
+  this will allow the RFduino to read the iPhone app's slider to 
+  determine which pin to activate
+  */
+  int rfduinoPin;
+  rfduinoPin = atoi(&data[0]);
+  motorOne = rfduinoPin;
+
+  // drive motor 1 or same motor clockwise
+  // if (data[0] == '1' && buttonState == 1)
+  if (buttonState == 1)
     digitalWrite(motorOne, HIGH);
   else
     digitalWrite(motorOne, LOW);
   
   // drive motor 2 or counter clockwise same motor
-  if (data[0] == '2' && buttonState == 1)
+/*  if (data[0] == '2' && buttonState == 1)
     digitalWrite(motorTwo, HIGH);
   else
-    digitalWrite(motorTwo, LOW);
+    digitalWrite(motorTwo, LOW);*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
