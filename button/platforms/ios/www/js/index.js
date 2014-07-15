@@ -91,14 +91,36 @@ onData: function(data) {
     } else {
         buttonState.innerHTML = "Off";
     }
+    // var btnValue = document.getElementById('motorSpeed').value;
+    // rfduino.write(btnValue, app.writeSuccess, app.onError);
+    
    if(this.value == '1'){
-    // alert('1: ' + this.value);
     rfduino.write('1', app.writeSuccess, app.onError);
    }
-   if(this.value == '2'){
-    // alert('2: ' + this.value);
+  if(this.value == '2'){
     rfduino.write('2', app.writeSuccess, app.onError);
    }
+/*    if(this.value == '3'){
+    rfduino.write('3', app.writeSuccess, app.onError);
+   }
+   if(this.value == '4'){
+    rfduino.write('4', app.writeSuccess, app.onError);
+   }
+   if(this.value == '5'){
+    rfduino.write('5', app.writeSuccess, app.onError);
+   }
+   if(this.value == '6'){
+    rfduino.write('6', app.writeSuccess, app.onError);
+   }
+   if(this.value == '7'){
+    rfduino.write('7', app.writeSuccess, app.onError);
+   }
+   if(this.value == '8'){
+    rfduino.write('8', app.writeSuccess, app.onError);
+   }
+   if(this.value == '9'){
+    rfduino.write('9', app.writeSuccess, app.onError);
+   }*/
 },
 disconnect: function() {
     rfduino.disconnect(app.showMainPage, app.onError);
