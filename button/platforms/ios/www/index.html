@@ -22,7 +22,7 @@
                 <button id="refreshButton">Refresh</button>
 
 <!-- temporarily moving above detail page -->
-<!--                 <div id="buttonState">Off</div>
+ <div id="buttonState">Off</div>
                 <button id="closeButton" class="ui-btn-b">Disconnect</button>
                 <br>
                 <label for="slider-3">Brightness (PWM Test):</label>
@@ -30,7 +30,7 @@
                 <input type="range" name="motorSpeed" id="motorSpeed" min="1" max="10" value="5" data-popup-enabled="true" data-show-value="true" data-highlight="true" >
                 </div>
                 <button id="motorOne" value="1">Green</button>
-                <button id="motorTwo" value="2">Blue</button> -->
+                <button id="motorTwo" value="2">Blue</button>
 
 <!-- /temporarily moving above detail page -->
             </div>
@@ -47,16 +47,21 @@
                 <button id="motorTwo" value="2">Blue</button>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-            // jQuery( document ).ready(function( $ ) {
+                <script type="text/javascript">
+            jQuery( document ).ready(function( $ ) {
+
+
+                
                 // $('#motorSpeed').on( 'slidestop', function(e) {
                 // var motor1speed = $(this).val();
                 // $('#motorSpeed').val(motor1speed);
                 // });
-            // });
+            });
+            </script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
             </script>
     </body>
 </html>

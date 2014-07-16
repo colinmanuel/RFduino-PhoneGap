@@ -95,6 +95,7 @@ onData: function(data) {
     // rfduino.write(btnValue, app.writeSuccess, app.onError);
     
    if(this.value == '1'){
+    this.className = this.className + " testing";
     rfduino.write('1', app.writeSuccess, app.onError);
    }
   if(this.value == '2'){
