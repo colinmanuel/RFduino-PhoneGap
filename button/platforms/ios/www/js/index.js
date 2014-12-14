@@ -38,6 +38,7 @@ bindEvents: function() {
     deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     motorOne.addEventListener('touchstart', this.onData, false);
     motorTwo.addEventListener('touchstart', this.onData, false);
+    motorThree.addEventListener('touchstart', this.onData, false);
     // TODO: add touchend event to make motor run only as long as my finger is on it?
     // http://www.sencha.com/forum/showthread.php?239799-Need-to-add-touchstart-and-touchend-event-for-button
     /*    motorOne.addEventListener('touchstart', 
@@ -101,10 +102,10 @@ onData: function(data) {
   if(this.value == '2'){
     rfduino.write('2', app.writeSuccess, app.onError);
    }
-/*    if(this.value == '3'){
+  if(this.value == '3'){
     rfduino.write('3', app.writeSuccess, app.onError);
    }
-   if(this.value == '4'){
+/*     if(this.value == '4'){
     rfduino.write('4', app.writeSuccess, app.onError);
    }
    if(this.value == '5'){

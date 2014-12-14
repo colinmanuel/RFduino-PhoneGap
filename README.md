@@ -9,7 +9,7 @@ The project goal is to use PhoneGap to build an iPhone app that will control the
 -  ~~Toggle 1 output correctly (Blue LED)~~
 -  ~~Drive and stop motor~~
 -  ~~Toggle 2 outputs correctly (Blue and Green LED)~~
-- Make 2 LEDs from 2 pins turn on and off simultaneously
+-  ~~Make 2 LEDs from 2 pins turn on and off simultaneously~~
 - Add PWM control to one output (Blue LED)
 - Add PWM control to two outputs (Blue and Green LED)
 - Drive, stop and reverse motor

@@ -13,8 +13,9 @@ the application.
 
 // pin 3 on the RGB shield is the red led
 // (can be turned on/off from the iPhone app)
-int motorOne = 3;
-int motorTwo = 4;
+int pinOne = 3;
+int pinTwo = 4;
+int pinSeven = 6;
 
 // pin 5 on the RGB shield is button 1
 // (button press will be shown on the iPhone app)
@@ -31,8 +32,9 @@ int buttonState = 0;
 
 void setup() {
   // led turned on/off from the iPhone app
-  pinMode(motorOne, OUTPUT);
-  pinMode(motorTwo, OUTPUT);
+  pinMode(pinOne, OUTPUT);
+  pinMode(pinTwo, OUTPUT);
+  pinMode(pinSeven, OUTPUT);
 
   // button press will be shown on the iPhone app)
   pinMode(button, INPUT);
@@ -98,8 +100,8 @@ void loop() {
 void RFduinoBLE_onDisconnect()
 {
   // don't leave the led on if they disconnect
-  digitalWrite(motorOne, LOW);
-  digitalWrite(motorTwo, LOW);
+  digitalWrite(pinOne, LOW);
+  digitalWrite(pinTwo, LOW);
 }
 
 void RFduinoBLE_onReceive(char *data, int len)
@@ -117,25 +119,51 @@ void RFduinoBLE_onReceive(char *data, int len)
   /*  
   int rfduinoPin;
   rfduinoPin = atoi(&data[0]);
-  motorOne = rfduinoPin;
+  pinOne = rfduinoPin;
   */
 
-
-
-  // drive motor 1 or same motor clockwise
+  // drive motor CW
   if (data[0] == '1' && buttonState == 1)
+  {
+    digitalWrite(pinOne, HIGH);
+    digitalWrite(pinTwo, LOW);
+    digitalWrite(pinSeven, HIGH);
+  } 
+  else if (data[0] == '2' && buttonState == 1)
+  {
+    digitalWrite(pinOne, HIGH);
+    digitalWrite(pinTwo, HIGH);
+    digitalWrite(pinSeven, LOW);
+  } 
+  else if (data[0] == '3' && buttonState == 1){
+    digitalWrite(pinOne, HIGH);
+    digitalWrite(pinTwo, LOW);
+    digitalWrite(pinSeven, LOW);
+  } 
+  else 
+  {
+    digitalWrite(pinOne, LOW);
+    digitalWrite(pinTwo, LOW);
+    digitalWrite(pinSeven, LOW);
+  }
+
+  // else {
+  //   digitalWrite(motorOne, LOW);
+  //   digitalWrite(pinOne, LOW);
+  // }
+
+  // drive motor CCW
+/*  if (data[0] == '1' && buttonState == 1)
     digitalWrite(motorOne, HIGH);
    else 
     digitalWrite(motorOne, LOW);
-  
-  // drive motor 2 or counter clockwise same motor
-  if (data[0] == '2' && buttonState == 1){
-    digitalWrite(motorTwo, HIGH);
-    digitalWrite(motorOne, HIGH);
-  } else {
-    digitalWrite(motorOne, LOW);
-    digitalWrite(motorTwo, LOW);
-}}
+  */
+
+
+}
+
+
+
 
 
 
