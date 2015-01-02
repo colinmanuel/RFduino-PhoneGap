@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
-        <title>RFduino Button</title>
+        <title>Motor Controller</title>
     </head>
     <body>
         <div class="app">
-            <h1>RFduino Button2</h1>
+            <h1>Motor Controller</h1>
             <div id="mainPage">
                 <ul id="deviceList">
                 </ul>
@@ -37,15 +37,16 @@
 
             <div id="detailPage">
                 <div id="buttonState">Off</div>
-                <button id="closeButton" class="ui-btn-b">Disconnect</button>
                <!--  <br>
                 <label for="slider-3">Brightness (PWM Test):</label>
                 <div class="full-width-slider">
                 <input type="range" name="motorSpeed" id="motorSpeed" min="1" max="10" value="5" data-popup-enabled="true" data-show-value="true" data-highlight="true" >
                 </div> -->
-                <button id="motorOne" value="1">CW</button>
-                <button id="motorTwo" value="2">CCW</button>
-                <button id="motorThree" value="3">Stop</button>
+                <button id="motorOne" value="1" data-icon="arrow-u" data-iconpos="top">Forward</button>
+                <button id="motorTwo" value="2" data-icon="arrow-d" data-iconpos="bottom">Reverse</button>
+                <button id="motorThree" value="3" data-theme="a">Stop</button>
+                <button id="closeButton" class="ui-btn-b">Disconnect</button>
+                
             </div>
         </div>
 <!--                 <script type="text/javascript">

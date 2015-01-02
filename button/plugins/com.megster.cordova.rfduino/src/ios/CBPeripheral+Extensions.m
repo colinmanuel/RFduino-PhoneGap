@@ -41,7 +41,12 @@ static char ADVERTISEMENT_RSSI_IDENTIFER;
     } else if ([self advertisementRSSI]) {
         [dictionary setObject: [self advertisementRSSI] forKey: @"rssi"];
     }
-    [dictionary setObject: [self advertising] forKey: @"advertising"];
+
+    if ([self advertising]) {
+        [dictionary setObject: [self advertising] forKey: @"advertising"];
+    } else {
+        [dictionary setObject: @"" forKey: @"advertising"];
+    }
     
     return dictionary;
 
@@ -54,7 +59,7 @@ static char ADVERTISEMENT_RSSI_IDENTIFER;
         id manufacturerData = [advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
         if (manufacturerData) {
             const uint8_t *bytes = [manufacturerData bytes];
-            int len = [manufacturerData length];
+            long len = [manufacturerData length];
             // skip manufacturer uuid
             NSData *data = [NSData dataWithBytes:bytes+2 length:len-2];
             [self setAdvertising: [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];

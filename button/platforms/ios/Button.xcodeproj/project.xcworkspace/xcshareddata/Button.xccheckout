@@ -10,29 +10,29 @@
 	<string>Button</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5352E95B-9DC0-425D-9F8B-4964ADC56266</key>
+		<key>59E585F5D144ED667CD0A0FA9BD2356177BB14ED</key>
 		<string>https://github.com/colinmanuel/RFduino-PhoneGap.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>button/platforms/ios/Button.xcodeproj/project.xcworkspace</string>
+	<string>button/platforms/ios/Button.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5352E95B-9DC0-425D-9F8B-4964ADC56266</key>
+		<key>59E585F5D144ED667CD0A0FA9BD2356177BB14ED</key>
 		<string>../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/colinmanuel/RFduino-PhoneGap.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5352E95B-9DC0-425D-9F8B-4964ADC56266</string>
+	<string>59E585F5D144ED667CD0A0FA9BD2356177BB14ED</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5352E95B-9DC0-425D-9F8B-4964ADC56266</string>
+			<string>59E585F5D144ED667CD0A0FA9BD2356177BB14ED</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RFduino-PhoneGap</string>
 		</dict>

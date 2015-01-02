@@ -11,7 +11,7 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.megster.cordova.rfduino": "0.0.2"
+    "com.megster.cordova.rfduino": "0.1.2"
 }
 // BOTTOM OF METADATA
 });
